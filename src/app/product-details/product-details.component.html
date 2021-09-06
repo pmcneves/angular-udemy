@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<button (click)="enableBuying()">Enable/Disable Buying</button>
+
+<div *ngFor="let product of products">
+  <h2>{{ product.name }}</h2>
+  <h2>{{ product.price }}</h2>
+  <h2>{{ product.description }}</h2>
+
+  <!--passing data to child - property binding: parent to child -->
+  <app-alert-details
+    [product]="product"
+    [isUnchanged] = "isUnchanged"
+    (notify) = "clickMe(product)"
+    >
+  </app-alert-details>
+</div>
